@@ -6,8 +6,18 @@
 characters (no numbers and symbols) and it should end with capital A else return false */
 
 function capitalA(s){
-    // Add your logic.
-    return;
+ let regex1=/[A-Z]/gi;
+ let regex2=/A$/g;
+ let regex3=/\d/g;
+
+ let regex4=/[*|+-_\":<>[\]{}`\\()';@&$]/g;
+ if(regex1.test(s)==true&&regex2.test(s)==true&&regex3.test(s)==false&&regex4.test(s)==false){
+    return true  ;
+ }
+else {
+    return false;
+}
+    
 }
 
 
@@ -15,7 +25,17 @@ function capitalA(s){
 which end with io (example@example.io) */
 
 function ioEmail(email){
-    // Add your logic.
+    let regex1=/@\w/g;
+    let regex2=/.io$/g;
+    let regex3=/^[a-z]/gi;
+   
+  
+    if(regex1.test(email)==true&&regex2.test(email)==true&&regex3.test(email)==true){
+       return true  ;
+    }
+   else {
+       return false;
+   }
     return;
 }
 
@@ -27,9 +47,12 @@ required extention are jpg, jpeg and png.
 */
 
 function imagesSearcher(text){
+    let regex=/\w.png$|\w.jpg$,|\w.jpeg$/g;
+   
     let arr = [];
+    arr=text.match(regex);
     // Add your logic.
-    return arr
+    return arr;
 }
 
 
