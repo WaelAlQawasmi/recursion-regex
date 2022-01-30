@@ -10,8 +10,7 @@ function capitalA(s){
  let regex2=/A$/g;
  let regex3=/\d/g;
 
- let regex4=/[*|+-_\":<>[\]{}`\\()';@&$]/g;
- if(regex1.test(s)==true&&regex2.test(s)==true&&regex3.test(s)==false&&regex4.test(s)==false){
+ if(regex1.test(s)==true&&regex2.test(s)==true&&regex3.test(s)==false){
     return true  ;
  }
 else {
@@ -28,9 +27,10 @@ function ioEmail(email){
     let regex1=/@\w/g;
     let regex2=/.io$/g;
     let regex3=/^[a-z]/gi;
-   
-  
-    if(regex1.test(email)==true&&regex2.test(email)==true&&regex3.test(email)==true){
+    let regex4=/@/g;
+    let regex5=/\./g;
+
+    if(regex1.test(email)==true&&regex2.test(email)==true&&regex3.test(email)==true&email.match(regex5).length==1&&email.match(regex1).length==1){
        return true  ;
     }
    else {
@@ -47,12 +47,19 @@ required extention are jpg, jpeg and png.
 */
 
 function imagesSearcher(text){
-    let regex=/\w.png$|\w.jpg$,|\w.jpeg$/g;
+    let regex=/\w+\.png|\w+\.jpg|\w+\.jpeg/g;
    
-    let arr = [];
-    arr=text.match(regex);
-    // Add your logic.
+    
+   let arr=text.match(regex);
+   if(arr==null){
+       let arrN=[];
+       return arrN;
+   }
+   else{
     return arr;
+   }
+    // Add your logic.
+    
 }
 
 
